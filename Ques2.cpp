@@ -2,23 +2,36 @@
 using namespace std;
 
 int main() {
-    int n, i;
-    cout << "Enter Size of array: ";
+    int n, i, j;
     cin >> n;
-    int arr[n];
-    cout << "Enter elements in array: ";
+    int s = 2*n - 2;
     for (i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    for (int i = 0; i < n; i++) {
-        arr[arr[i] % n] = arr[arr[i] % n] + n;
-    }
-    cout << "The repeating elements are : " << endl;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] >= n * 2) {
-            cout << i << " " ;
+        for (j = 0; j < i + 1; j++) {
+            cout << "*";
         }
+        for (j = i + 1; j <= s; j++) {
+            cout << " ";
+        }
+        for (j = s + 1; j < 2 * n; j++) {
+            cout << "*";
+        }
+        s--;
+        cout <<endl;
     }
-    cout << "\n";
+    s = n;
+    for (i = n-1; i >= 0; i--) {
+        for (j = 0; j < i + 1; j++) {
+            cout << "*";
+        }
+        for (j = i + 1; j < s; j++) {
+            cout << " ";
+        }
+        for (j = s ; j < 2 * n; j++) {
+            cout << "*";
+        }
+        s++;
+        cout <<endl;
+    }
+
     return 0;
 }
